@@ -22,9 +22,8 @@ if __name__ == "__main__":
     resp = requests.get("http://twittrend.jp/")
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    areas_name = read_areas_name(soup)
-
     words = {}
+    areas_name = read_areas_name(soup)
     for name in areas_name:
         words[name] = read_trend_words(soup, name)
 
